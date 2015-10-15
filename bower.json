@@ -1,0 +1,19 @@
+{
+    "name": "moduleName",
+    "version": "0.0.1",
+    "authors": [
+        "Nick Randall <nick.randall@domo.com>"
+    ],
+    "description": "A basic starter template for building reusable modules",
+    "main": "dist/bundle.js",
+    "license": "MIT",
+    "homepage": "https://github.com/nicksrandall/kotojs",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {}
+}
