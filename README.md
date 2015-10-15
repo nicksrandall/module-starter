@@ -6,7 +6,8 @@ This is a VERY basic starter template for building reusable modules.
 - Change name in package.json
 - Change name is bower.json
 - `$ rm -r .git`
-- `$ git init`
+- `$ git init` and setup new repo
+- `$ npm i`
 
 ## Usage
 - `$ npm start` to run webpack-dev-server

@@ -1,56 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Koto Chart</title>
-  <script src="/node_modules/d3/d3.js"></script>
-  <script src="/node_modules/koto/dist/koto.js"></script>
+  <title>Module</title>
 </head>
 <body>
-  <svg width="800" height="500">
-    <g id="chart"></g>
-  </svg>
-  <script src="/dist/chart.js"></script>
+  <script src="/dist/bundle.js"></script>
   <script>
-    // datasrc.js
-    // A simple data source to feed the bar chart visualization. Based on the
-    // implementation in "A Bar Chart, part 2":
-    // http://mbostock.github.com/d3/tutorial/bar-2.html
-    (function(window) {
-      "use strict";
-      var DataSrc = window.DataSrc = function() {
-        var self = this;
-        this.time = 1297110663; // start time (seconds since epoch)
-        this.value = 70;
-        this.data = d3.range(33).map(function() { return self.next(); });
-      };
-
-      DataSrc.prototype.next = function() {
-        this.time += 1;
-        this.value = ~~Math.max(10, Math.min(90, this.value + 10 * (Math.random() - .5)));
-        return {
-          time: this.time,
-          value: this.value
-        };
-      };
-
-      DataSrc.prototype.fetch = function() {
-        this.data.shift();
-        this.data.push(this.next());
-      };
-
-    }(this));
-
-    var dataSrc = new DataSrc();
-
-    var barChart = new KotoBarChart(d3.select('#chart'));
-
-    barChart.draw(dataSrc.data);
-
-    setInterval(function() {
-      dataSrc.fetch();
-      barChart.draw(dataSrc.data);
-    }, 1500);
-
+    // test or demo module here
   </script>
 </body>
 </html>

@@ -1,9 +1,9 @@
-export default BarChart => {
+export default Module => {
   'use strict';
 
-  describe('BarChart', function () {
+  describe('Module', function () {
     it('should exist', function () {
-      expect(BarChart).to.exist;
+      expect(Module).to.exist;
     });
   });
 };
