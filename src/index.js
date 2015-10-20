@@ -1,11 +1,11 @@
-class Module {
-  constructor(name) {
-    this.name = name;
-  }
-}
+var angular = require('angular');
+var ngModule = angular.module('mobile-filters', []);
+
+require('./filter-items')(ngModule);
+require('./select')(ngModule);
 
 if (ON_TEST) {
-  require('./index.spec')(Module);
+  require('./index.spec')(ngModule);
 }
 
-export default Module
+export default ngModule;

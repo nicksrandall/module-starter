@@ -28,6 +28,8 @@
     "babel-runtime": "^5.8.25",
     "chai": "^3.3.0",
     "coveralls": "^2.11.1",
+    "css-loader": "^0.20.1",
+    "cssnano": "^3.3.1",
     "fixmyjs": "^1.0.2",
     "husky": "^0.10.1",
     "install": "^0.1.8",
@@ -48,12 +50,22 @@
     "karma-webpack": "^1.5.0",
     "lcov-filter": "0.0.3",
     "mocha": "^2.1.0",
+    "ng-annotate-webpack-plugin": "^0.1.2",
     "npm": "^3.3.4",
     "polyfill-function-prototype-bind": "0.0.1",
+    "postcss-browser-reporter": "^0.4.0",
+    "postcss-cssnext": "^2.1.0",
+    "postcss-import": "^7.1.0",
+    "postcss-loader": "^0.7.0",
+    "postcss-nesting": "^2.0.6",
+    "postcss-reporter": "^1.3.0",
     "sinon": "^1.12.2",
     "sinon-chai": "^2.7.0",
+    "style-loader": "^0.13.0",
     "webpack": "^1.6.0",
     "webpack-dev-server": "^1.12.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "angular": "^1.4.7"
+  }
 }

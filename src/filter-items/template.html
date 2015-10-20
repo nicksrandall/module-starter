@@ -1,0 +1,21 @@
+<div class="filter-container">
+  <div class="filter-title">
+    <span class="label">Options</span>
+  </div>
+  <div class="filter-items open">
+    <div class="filter-seperator">
+      <i class="item-value-icon icon-funnel"></i>
+      <span class="label">FILTERS</span>
+    </div>
+  </div>
+  <div class="filter-drill" ng-click="vm.close()">
+    <div class="drill-back">
+      <i class="item-value-icon icon-chevron-left"></i>
+      <span class="label">{{vm.name}}</span>
+    </div>
+    <div class="option-item" ng-repeat="item in vm.options" ng-click="vm.select(vm.key, item)">
+      <span class="name">{{item.name}}</span>
+      <i ng-class="{hidden: vm.isSelectedItem(item)}" class="icon-check"></i>
+    </div>
+  </div>
+</div>
