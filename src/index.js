@@ -1,11 +1,11 @@
-var angular = require('angular');
-var ngModule = angular.module('mobile-filters', []);
-
-require('./filter-items')(ngModule);
-require('./select')(ngModule);
-
-if (ON_TEST) {
-  require('./index.spec')(ngModule);
+class Module {
+  constructor(name) {
+    this.name = name;
+  }
 }
 
-export default ngModule;
+if (ON_TEST) {
+  require('./index.spec')(Module);
+}
+
+export default Module

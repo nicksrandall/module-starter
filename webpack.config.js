@@ -1,16 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
 
-var ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
-
-// postcss plugins
-var cssnext = require('postcss-cssnext');
-var postcssImport = require('postcss-import');
-var reporter = require('postcss-reporter');
-var cssnano = require('cssnano');
-var messages = require('postcss-browser-reporter');
-var nesting = require('postcss-nesting');
-
 var config = {
   context: __dirname + '/src',
   // the entry point of your library
@@ -31,16 +21,9 @@ var config = {
     // the name of your library in global scope
     library: 'moduleName'
   },
-
-  externals: {
-    angular: 'angular'
-  },
+  externals: {},
 
   plugins: [
-    new ngAnnotatePlugin({
-      add: true,
-      remove: true
-    }),
     new webpack.DefinePlugin({
       ON_DEV: process.env.NODE_ENV === 'development' || !process.env.NODE_ENV,
       ON_TEST: process.env.NODE_ENV === 'test',
@@ -53,40 +36,7 @@ var config = {
       test: /\.js$/,
       loader: 'babel?stage=1&optional=runtime&loose=all',
       exclude: /(node_modules|bower_components)/
-    }, {
-      test: /\.html$/,
-      loader: 'raw'
-    }, {
-      test:   /\.css$/,
-      loader: 'style!css!postcss',
-      exclude: /(node_modules|bower_components)/
     }]
-  },
-
-  postcss: function () {
-    var postcssPlugins = [
-      postcssImport({
-        onImport: function (files) {
-          files.forEach(this.addDependency);
-        }.bind(this)
-      }),
-      nesting(),
-      cssnext({browsers: 'last 2 versions'}),
-      reporter()
-    ];
-
-    if (process.env.NODE_ENV === 'production') {
-      postcssPlugins.push(cssnano({
-        mergeRules: false,
-        zindex: false,
-        reduceIdents: false,
-        mergeIdents: false
-      }));
-    } else {
-      postcssPlugins.push(messages());
-    }
-
-    return postcssPlugins;
   },
 
   devtool: 'source-map',
