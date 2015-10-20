@@ -1,6 +1,6 @@
 {
   "name": "moduleName",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A basic starter template for building reusable modules",
   "main": "./dist/bundle.js",
   "scripts": {
