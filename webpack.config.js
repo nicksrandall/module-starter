@@ -34,8 +34,13 @@ var config = {
   module: {
     loaders: [{
       test: /\.js$/,
-      loader: 'babel?stage=1&optional=runtime&loose=all',
-      exclude: /(node_modules|bower_components)/
+      exclude: /(node_modules|bower_components)/,
+      loader: 'babel',
+      query: {
+        cacheDirectory: true,
+        presets: ['es2015-loose', 'stage-1'],
+        plugins: ['transform-runtime']
+      }
     }]
   },
 
