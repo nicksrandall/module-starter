@@ -1,13 +1,13 @@
-var webpack = require('webpack');
-var path = require('path');
+const webpack = require('webpack');
+const path = require('path');
 
-var config = {
+const config = {
   context: __dirname + '/src',
   // the entry point of your library
   entry: './index.js',
   // where 3rd-party modules can reside
   resolve: {
-    modulesDirectories: ['node_modules', 'bower_components']
+    modulesDirectories: ['node_modules', 'bower_components'],
   },
 
   output: {
@@ -19,7 +19,7 @@ var config = {
     // the standalone build should be wrapped in UMD for interop
     libraryTarget: 'umd',
     // the name of your library in global scope
-    library: 'moduleName'
+    library: 'moduleName',
   },
   externals: {},
 
@@ -27,11 +27,18 @@ var config = {
     new webpack.DefinePlugin({
       ON_DEV: process.env.NODE_ENV === 'development' || !process.env.NODE_ENV,
       ON_TEST: process.env.NODE_ENV === 'test',
-      ON_PROD: process.env.NODE_ENV === 'production'
-    })
+      ON_PROD: process.env.NODE_ENV === 'production',
+    }),
   ],
 
   module: {
+    preLoaders: [
+      {
+        test: /\.js$/,
+        loader: 'eslint-loader',
+        exclude: /(node_modules|bower_components)/,
+      },
+    ],
     loaders: [{
       test: /\.js$/,
       exclude: /(node_modules|bower_components)/,
@@ -39,9 +46,9 @@ var config = {
       query: {
         cacheDirectory: true,
         presets: ['es2015-loose', 'stage-1'],
-        plugins: ['transform-runtime']
-      }
-    }]
+        plugins: ['transform-runtime'],
+      },
+    }],
   },
 
   devtool: 'source-map',
@@ -50,8 +57,8 @@ var config = {
     contentBase: '',
     noInfo: false, //  --no-info option
     hot: true,
-    inline: true
-  }
+    inline: true,
+  },
 };
 
 if (process.env.NODE_ENV === 'production') {

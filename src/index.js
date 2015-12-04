@@ -8,4 +8,4 @@ if (ON_TEST) {
   require('./index.spec')(Module);
 }
 
-export default Module
+module.exports = Module;

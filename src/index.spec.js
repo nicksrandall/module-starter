@@ -1,9 +1,7 @@
-export default Module => {
-  'use strict';
-
-  describe('Module', function () {
-    it('should exist', function () {
-      expect(Module).to.exist;
+module.exports = Module => {
+  describe('Module', () => {
+    it('should exist', () => {
+      expect(Module).to.not.equal(undefined);
     });
   });
 };

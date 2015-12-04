@@ -1,28 +1,27 @@
-'use strict';
-var path = require('path');
+const path = require('path');
 
 // laod webpack config here for for webpack preprocessor
-var webpackConfig = require('./webpack.config');
+const webpackConfig = require('./webpack.config');
 webpackConfig.cache = true;
 
-var entry = path.resolve(webpackConfig.context, webpackConfig.entry);
-var preprocessors = {};
+const entry = path.resolve(webpackConfig.context, webpackConfig.entry);
+const preprocessors = {};
 preprocessors[entry] = ['webpack'];
 
-// pass all essential scripts to istanbul for coverage 
+// pass all essential scripts to istanbul for coverage
 webpackConfig.module.postLoaders = [{
   test: /\.js$/,
   exclude: /(\.spec.js|vendor|node_modules)/,
-  loader: 'istanbul-instrumenter'
+  loader: 'istanbul-instrumenter',
 }];
 
-module.exports = function (config) {
+module.exports = function buildConfig(config) {
   config.set({
     basePath: './',
     frameworks: ['mocha', 'chai', 'sinon', 'sinon-chai'],
     files: [
       'node_modules/polyfill-function-prototype-bind/bind.js',
-      entry
+      entry,
     ],
     webpack: webpackConfig,
 
@@ -38,16 +37,16 @@ module.exports = function (config) {
     reporters: ['progress', 'coverage'],
     coverageReporter: {
       dir: 'coverage/',
-      subdir: function (browser) {
+      subdir: function subdir(browser) {
         return browser.toLowerCase().split(/[ /-]/)[0];
       },
       reporters: [
-        {type: 'cobertura', file: 'cobertura.xml'},
-        {type: 'text', file: 'text.txt'},
-        {type: 'text-summary', file: 'text-summary.txt'},
-        {type: 'html'},
-        {type: 'lcov', file: 'lcov.info'}
-      ]
+        { type: 'cobertura', file: 'cobertura.xml' },
+        { type: 'text', file: 'text.txt' },
+        { type: 'text-summary', file: 'text-summary.txt' },
+        { type: 'html' },
+        { type: 'lcov', file: 'lcov.info' },
+      ],
     },
     port: 9876,
     colors: true,
@@ -63,7 +62,7 @@ module.exports = function (config) {
       'karma-mocha',
       'karma-chai',
       'karma-sinon',
-      'karma-sinon-chai'
-    ]
+      'karma-sinon-chai',
+    ],
   });
 };
