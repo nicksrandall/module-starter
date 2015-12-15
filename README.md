@@ -2,7 +2,7 @@
 This is a VERY basic starter template for building reusable modules.
 
 ## Getting started
-- Change `output.libarary` name in `webpack.config.js`
+- Change `output.libarary` property in `webpack.config.js`
 - Change name in package.json
 - Change name is bower.json
 - `$ rm -r .git`
@@ -16,4 +16,3 @@ This is a VERY basic starter template for building reusable modules.
 - `$ npm run jshint` to lint code
 - `$ npm run build` to build (and minify)
 - `$ npm version (patch|minor|major)` to create git release
-

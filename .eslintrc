@@ -3,6 +3,10 @@
   "env": {
     "mocha": true
   },
+  "rules": {
+    "comma-dangle": [0, "always-multiline"],
+    "no-use-before-define": [2, "nofunc"]
+  },
   "globals": {
     "ON_DEV": false,
     "ON_TEST": false,
